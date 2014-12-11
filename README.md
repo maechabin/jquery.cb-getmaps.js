@@ -12,9 +12,12 @@ jQuery、Google Maps API、当プラグインをページに読み込みます�
 ```html
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
-<script src="jquery.getmaps.min.js"></script>
+<script src="jquery.cbgetmaps.min.js"></script>
 ```
 
+※Google Maps APIの読み込み方については、以下も併せてご確認ください。
+
+[Google Maps JavaScript API v3スタートガイド](https://developers.google.com/maps/documentation/javascript/tutorial?hl=ja)
 
 ###2. 位置情報の取得
 
