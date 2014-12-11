@@ -31,19 +31,10 @@
 
 	};
 
-
-//	GetMap.prototype.readGoogleapi = function () {
-
-//		var body = $("body");
-//		var s = $("<script>").attr("src", "http://maps.googleapis.com/maps/api/js?sensor=true");
-//		body.append(s);
-
-//	};
-
 	GetMap.prototype.getData = function () {
 
-			var map_address = this.$element.attr("title");
-			this.codeAddress(map_address);
+		var map_address = this.$element.attr("title");
+		this.codeAddress(map_address);
 
 	};
 
@@ -93,9 +84,11 @@
 
 		var map_link_p = $("<p>").addClass("map-link").css({"font-size": this.config.map_canvas_text_size});
 		var map_link_a = $("<a>").attr({
-				"href": "https://www.google.co.jp/maps?q=" + link_location,
-				"target": "_blank"
-			}).html("<b>" + this.config.map_canvas_text + "</b>");
+			"href": "https://www.google.co.jp/maps?q=" + link_location,
+			"target": "_blank"
+		}).html(
+			"<b>" + this.config.map_canvas_text + "</b>"
+		);
 
 		var map_link = map_link_p.append(map_link_a );
 
@@ -116,7 +109,6 @@
 	GetMap.prototype.init = function () {
 
 		this.config = $.extend({}, this.defaults, this.options);
-//		this.readGoogleapi();
 		this.makeCanvas();
 		this.getData();
 
