@@ -2,9 +2,8 @@
 * jquery.cbgetmap.js v1.0.0
 * Auther @maechabin
 * Licensed under mit license
-* https://github.com/maechabin/jquery.cb-getmaps.js
+* https://github.com/maechabin/jquery.cbgetmaps.js
 */
-
 ;(function ($, window, document, undefined) {
 
 	var GetMap = function (element, options, i) {
@@ -24,10 +23,10 @@
 		map_canvas_name: ".cb-mapcanvas",
 		map_canvas_width: "100%",
 		map_canvas_height: "120px",
-		map_canvas_text: "大きな地図で見る",
+		map_canvas_text: "大きな地図で見る", // タグ使用可
 		map_canvas_text_size: "14px",
 		map_zoom: 13,
-		map_type: "ROADMAP"
+		map_type: "ROADMAP" // ROADMAP, SATELLITE, HYBRID, TERRAIN
 
 	};
 
@@ -82,7 +81,10 @@
 		var location_text = location + ""
 		var link_location = location_text.replace(/[\(\)]/g, "");
 
-		var map_link_p = $("<p>").addClass("map-link").css({"font-size": this.config.map_canvas_text_size});
+		var map_link_p = $("<p>").addClass("cb-maplink").css({
+			"font-size": this.config.map_canvas_text_size,
+			"margin-top": "4px"
+		});
 		var map_link_a = $("<a>").attr({
 			"href": "https://www.google.co.jp/maps?q=" + link_location,
 			"target": "_blank"
@@ -100,8 +102,9 @@
 
 		this.map_canvas = $(this.config.map_canvas_name);
 		this.map_canvas.css({
-			width: this.config.map_canvas_width,
-			height: this.config.map_canvas_height
+			"margin": 0,
+			"width": this.config.map_canvas_width,
+			"height": this.config.map_canvas_height
 		});
 
 	};
