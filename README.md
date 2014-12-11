@@ -12,7 +12,7 @@ jQuery、Google Maps API、当プラグインをページに読み込みます�
 ```html
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
-<script src="jquery.cbsharecount.min.js"></script>
+<script src="jquery.getmaps.min.js"></script>
 ```
 
 
@@ -48,7 +48,7 @@ jQuery、Google Maps API、当プラグインをページに読み込みます�
 <div class="cb-mapcanvas"></div>
 ```
 
-###ex.2 取得と表示を同じ要素内で行ってもOK
+####ex.2 取得と表示を同じ要素内で行ってもOK
 ```html
 <div class="cb-getmap cb-mapcanvas" title="35.689599,139.692090"></div>
 ```
