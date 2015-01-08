@@ -91,6 +91,7 @@ $(".cb-getmap").cbGetMaps();
 
 ```js
 $(".cb-getmap").cbGetMaps({
+	map_location_name: ".cb-getlocation",
 	map_canvas_name: ".cb-mapcanvas",
 	map_canvas_width: "100%",
 	map_canvas_height: "120px",
@@ -135,9 +136,9 @@ MIT license
 
 ###ver. 1.2
 
--同一ページ内で複数の別要素に対してプラグインを実行できるようにしました。
--これによりそれぞれの要素にオプションを指定することができるようにしました。
--位置情報を取得するためのtitle属性を指定する要素を、任意のclass属性値からcb-getlocationに固定しました。
--位置情報を取得するためのtitle属性を指定する要素のclass属性値をオプションで指定できるようにしました。
+- 同一ページ内で複数の別要素に対してプラグインを実行できるようにしました。
+- これによりそれぞれの要素にオプションを指定することができるようにしました。
+- 位置情報を取得するためのtitle属性を指定する要素を、任意のclass属性値からcb-getlocationに固定しました。
+- 位置情報を取得するためのtitle属性を指定する要素のclass属性値をオプションで指定できるようにしました。
 
 
