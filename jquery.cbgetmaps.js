@@ -1,25 +1,27 @@
 /*!
-* jquery.cbgetmap.js v1.0.0
+* jquery.cbgetmap.js v1.2.0
 * Auther @maechabin
 * Licensed under mit license
 * https://github.com/maechabin/jquery.cbgetmaps.js
 */
 ;(function ($, window, document, undefined) {
 
-	var GetMap = function (element, options, i) {
+	var GetMap = function (element, options, id) {
 
 		this.element = element;
 		this.$element = $(element);
 		this.config;
 		this.options = options;
+		this.map_location;
 		this.map_canvas;
-		this.map_canvas_id = i;
+		this.map_canvas_id = id;
 		this.geocoder = new google.maps.Geocoder();
 
 	};
 
 	GetMap.prototype.defaults = {
 
+		map_location_name: ".cb-getlocation",
 		map_canvas_name: ".cb-mapcanvas",
 		map_canvas_width: "100%",
 		map_canvas_height: "120px",
@@ -32,7 +34,7 @@
 
 	GetMap.prototype.getData = function () {
 
-		var map_address = this.$element.attr("title");
+		var map_address = this.$element.find(this.config.map_location_name).attr("title");
 		this.codeAddress(map_address);
 
 	};
@@ -47,8 +49,8 @@
 			scrollwheel: false
 		};
 
-		var c = this.map_canvas[this.map_canvas_id];
-		var map = new google.maps.Map(c, mapOptions);
+		var cvs = that.map_canvas[that.map_canvas_id];
+		var map = new google.maps.Map(cvs, mapOptions);
 
 		this.geocoder.geocode({'address': address}, function (results, status) {
 
@@ -78,7 +80,7 @@
 
 	GetMap.prototype.makeLink = function (location) {
 
-		var location_text = location + ""
+		var location_text = location + "";
 		var link_location = location_text.replace(/[\(\)]/g, "");
 
 		var map_link_p = $("<p>").addClass("cb-maplink").css({
@@ -100,7 +102,7 @@
 
 	GetMap.prototype.makeCanvas = function () {
 
-		this.map_canvas = $(this.config.map_canvas_name);
+		this.map_canvas = $("." + this.$element.attr("class")).find(this.config.map_canvas_name);
 		this.map_canvas.css({
 			"margin": 0,
 			"width": this.config.map_canvas_width,
