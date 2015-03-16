@@ -1,19 +1,30 @@
 /*!
-* jquery.cbgetmap.js v1.2.0
+* jquery.cbgetmap.js v1.2.1
 * Auther @maechabin
 * Licensed under mit license
 * https://github.com/maechabin/jquery.cbgetmaps.js
 */
-;(function ($, window, document, undefined) {
+;(function (factory) {
+
+  if (typeof module === "object" && typeof module.exports === "object") {
+
+    factory(require("jquery"), window, document);
+
+  } else {
+
+    factory(jQuery, window, document);
+
+  }
+
+} (function ($, window, document, undefined) {
 
 	var GetMap = function (element, options, id) {
 
 		this.element = element;
 		this.$element = $(element);
-		this.config;
+		this.config = {};
 		this.options = options;
-		this.map_location;
-		this.map_canvas;
+		this.map_canvas = [];
 		this.map_canvas_id = id;
 		this.geocoder = new google.maps.Geocoder();
 
@@ -39,10 +50,10 @@
 
 	};
 
-	GetMap.prototype.codeAddress = function (address) {
+	GetMap.prototype.codeAddress = function (addr) {
 
 		var that = this;
-		var address = address;
+		var address = addr;
 		var mapOptions = {
 			zoom: that.config.map_zoom,
 			mapTypeId: google.maps.MapTypeId[that.config.map_type],
@@ -131,4 +142,4 @@
 
 	};
 
-} (jQuery, window, document));
+}));
