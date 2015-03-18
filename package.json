@@ -1,6 +1,6 @@
 {
   "name": "jquery.cbgetmaps.js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "「住所」「場所名」「緯度経度」から位置情報を取得し、Google Maps APIを使って地図を表示させるjQueryプラグイン",
   "main": "jquery.cbgetmaps.js",
   "scripts": {
